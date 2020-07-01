@@ -195,6 +195,15 @@ didSelectSearchSuggestionAtIndex:(NSInteger)index
  */
 - (void)didClickBack:(PYSearchViewController *)searchViewController;
 
+/**
+ Return a `UIView` object.
+
+ @param searchViewController    view which display search suggestions
+ @param section               indexPath of row
+ @return a `UIView` object
+ */
+- (UIView *)searchController:(PYSearchViewController *)searchViewController viewForHeaderInSection:(NSInteger)section;
+
 @end
 
 @interface PYSearchViewController : UIViewController
