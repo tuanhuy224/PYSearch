@@ -499,12 +499,16 @@
     ////
     UIView *viewTitle = [[UIView alloc] init];
     viewTitle.py_width = PYScreenW;
-    viewTitle.py_height = PYSEARCH_MARGIN*4;
-    viewTitle.backgroundColor = UIColor.darkGrayColor;
+    viewTitle.py_height = PYSEARCH_MARGIN*6;
+    UIColor * color = [UIColor colorWithRed:194/255.0f
+    green:194/255.0f
+     blue:194/255.0f
+    alpha:1.0f];
+    viewTitle.backgroundColor = color;
     viewTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     ////
     UILabel *titleLabel = [self setupTitleLabel:[NSBundle py_localizedStringForKey:PYSearchHotSearchText]];
-    titleLabel.py_height = PYSEARCH_MARGIN*4;
+    titleLabel.py_height = PYSEARCH_MARGIN*6;
     titleLabel.py_width = PYScreenW;
     titleLabel.py_x = PYSEARCH_MARGIN;
     titleLabel.font = [UIFont systemFontOfSize:15];
@@ -1320,7 +1324,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return self.searchHistories.count && self.showSearchHistory && PYSearchHistoryStyleCell == self.searchHistoryStyle ? 25 : 0.01;
+    return self.searchHistories.count && self.showSearchHistory && PYSearchHistoryStyleCell == self.searchHistoryStyle ? 60 : 0.01;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
