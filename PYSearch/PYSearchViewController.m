@@ -1131,9 +1131,9 @@
     UISearchBar *searchBar = self.searchBar;
     [searchBar resignFirstResponder];
     NSString *searchText = searchBar.text;
-    if (self.removeSpaceOnSearchString) { // remove sapce on search string
-       searchText = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    }
+//    if (self.removeSpaceOnSearchString) { // remove sapce on search string
+//       searchText = [searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+//    }
     if (self.showSearchHistory && searchText.length > 0) {
         [self.searchHistories removeObject:searchText];
         [self.searchHistories insertObject:searchText atIndex:0];
