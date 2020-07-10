@@ -976,7 +976,7 @@
                 tag.textColor = [UIColor whiteColor];
                 tag.layer.borderColor = nil;
                 tag.layer.borderWidth = 0.0;
-                tag.backgroundColor = PYSEARCH_COLORPolRandomColor;
+                tag.backgroundColor = PYSEARCH_COLOR(255, 227, 227);
             }
             break;
         case PYSearchHistoryStyleBorderTag:
@@ -1014,7 +1014,7 @@
                 tag.textColor = backgroundButtonColor;
                 tag.layer.borderColor = nil;
                 tag.layer.borderWidth = 0.0;
-                tag.backgroundColor = PYSEARCH_COLORPolRandomColor;
+                tag.backgroundColor = PYSEARCH_COLOR(255, 227, 227);
             }
             break;
         case PYHotSearchStyleBorderTag:
