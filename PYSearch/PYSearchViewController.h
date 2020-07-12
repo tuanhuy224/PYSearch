@@ -208,6 +208,9 @@ didSelectSearchSuggestionAtIndex:(NSInteger)index
 
 @interface PYSearchViewController : UIViewController
 
+// delete list history
+-(void)emptySearchHistoryDidClick;
+
 /**
  The delegate
  */
