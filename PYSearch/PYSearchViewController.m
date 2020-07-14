@@ -540,22 +540,22 @@
     self.headerView = headerView;
     self.baseSearchTableView.tableHeaderView = headerView;
     
-    UIView *footerView = [[UIView alloc] init];
-    footerView.py_width = PYScreenW;
-    UILabel *emptySearchHistoryLabel = [[UILabel alloc] init];
-    emptySearchHistoryLabel.textColor = [UIColor darkGrayColor];
-    emptySearchHistoryLabel.font = [UIFont systemFontOfSize:13];
-    emptySearchHistoryLabel.userInteractionEnabled = YES;
-    emptySearchHistoryLabel.text = [NSBundle py_localizedStringForKey:PYSearchEmptySearchHistoryText];
-    emptySearchHistoryLabel.textAlignment = NSTextAlignmentCenter;
-    emptySearchHistoryLabel.py_height = 49;
-    [emptySearchHistoryLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emptySearchHistoryDidClick)]];
-    emptySearchHistoryLabel.py_width = footerView.py_width;
-    emptySearchHistoryLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.emptySearchHistoryLabel = emptySearchHistoryLabel;
-    [footerView addSubview:emptySearchHistoryLabel];
-    footerView.py_height = emptySearchHistoryLabel.py_height;
-    self.baseSearchTableView.tableFooterView = footerView;
+//    UIView *footerView = [[UIView alloc] init];
+//    footerView.py_width = PYScreenW;
+//    UILabel *emptySearchHistoryLabel = [[UILabel alloc] init];
+//    emptySearchHistoryLabel.textColor = [UIColor darkGrayColor];
+//    emptySearchHistoryLabel.font = [UIFont systemFontOfSize:13];
+//    emptySearchHistoryLabel.userInteractionEnabled = YES;
+//    emptySearchHistoryLabel.text = [NSBundle py_localizedStringForKey:PYSearchEmptySearchHistoryText];
+//    emptySearchHistoryLabel.textAlignment = NSTextAlignmentCenter;
+//    emptySearchHistoryLabel.py_height = 49;
+//    [emptySearchHistoryLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emptySearchHistoryDidClick)]];
+//    emptySearchHistoryLabel.py_width = footerView.py_width;
+//    emptySearchHistoryLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    self.emptySearchHistoryLabel = emptySearchHistoryLabel;
+//    [footerView addSubview:emptySearchHistoryLabel];
+//    footerView.py_height = emptySearchHistoryLabel.py_height;
+//    self.baseSearchTableView.tableFooterView = footerView;
     
     self.hotSearches = nil;
 }
