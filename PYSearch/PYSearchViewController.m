@@ -1316,13 +1316,12 @@
         [closetButton addTarget:self action:@selector(closeDidClick:) forControlEvents:UIControlEventTouchUpInside];
         closeView.contentMode = UIViewContentModeCenter;
         cell.accessoryView = closetButton;
-        UIImageView *line = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"image-content-line"]];
+        UILabel *line = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, tableView.py_width - PYSEARCH_MARGIN*4, 0.5)];
+        line.backgroundColor = UIColor.grayColor;
         line.py_height = 0.5;
         line.alpha = 0.7;
-        line.py_x = PYSEARCH_MARGIN;
+        line.py_x = PYSEARCH_MARGIN*2;
         line.py_y = 43;
-        line.py_width = tableView.py_width;
-        line.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [cell.contentView addSubview:line];
     }
     
