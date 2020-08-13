@@ -1003,9 +1003,9 @@
 {
     _hotSearchStyle = hotSearchStyle;
     
-    UIColor * backgroundButtonColor = [UIColor colorWithRed:51/255.0f
-                                           green:51/255.0f
-                                            blue:100/255.0f
+    UIColor * backgroundButtonColor = [UIColor colorWithRed:35/255.0f
+                                           green:35/255.0f
+                                            blue:35/255.0f
                                            alpha:1.0f];
     
     switch (hotSearchStyle) {
@@ -1014,7 +1014,9 @@
                 tag.textColor = backgroundButtonColor;
                 tag.layer.borderColor = nil;
                 tag.layer.borderWidth = 0.0;
-                tag.backgroundColor = PYSEARCH_COLOR(255, 227, 227);
+                tag.layer.cornerRadius = tag.bounds.size.height/2;
+                tag.clipsToBounds = true;
+                tag.backgroundColor = PYSEARCH_COLOR(238, 238, 238);
             }
             break;
         case PYHotSearchStyleBorderTag:
