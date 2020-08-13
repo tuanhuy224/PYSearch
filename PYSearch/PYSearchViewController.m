@@ -1310,24 +1310,24 @@
         cell.textLabel.font = [UIFont systemFontOfSize:14];
         cell.backgroundColor = [UIColor clearColor];
         
-        //        UIButton *closetButton = [[UIButton alloc] init];
-        //        closetButton.py_size = CGSizeMake(cell.py_height, cell.py_height);
-        //        [closetButton setImage:[NSBundle py_imageNamed:@"close"] forState:UIControlStateNormal];
-        //        UIImageView *closeView = [[UIImageView alloc] initWithImage:[NSBundle py_imageNamed:@"close"]];
-        //        [closetButton addTarget:self action:@selector(closeDidClick:) forControlEvents:UIControlEventTouchUpInside];
-        //        closeView.contentMode = UIViewContentModeCenter;
-        //        cell.accessoryView = closetButton;
-        //        UIImageView *line = [[UIImageView alloc] initWithImage:[NSBundle py_imageNamed:@"cell-content-line"]];
-        //        line.py_height = 0.5;
-        //        line.alpha = 0.7;
-        //        line.py_x = PYSEARCH_MARGIN;
-        //        line.py_y = 43;
-        //        line.py_width = tableView.py_width;
-        //        line.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        //        [cell.contentView addSubview:line];
+                UIButton *closetButton = [[UIButton alloc] init];
+                closetButton.py_size = CGSizeMake(cell.py_height, cell.py_height);
+                [closetButton setImage:[NSBundle py_imageNamed:@"close"] forState:UIControlStateNormal];
+                UIImageView *closeView = [[UIImageView alloc] initWithImage:[NSBundle py_imageNamed:@"close"]];
+                [closetButton addTarget:self action:@selector(closeDidClick:) forControlEvents:UIControlEventTouchUpInside];
+                closeView.contentMode = UIViewContentModeCenter;
+                cell.accessoryView = closetButton;
+                UIImageView *line = [[UIImageView alloc] initWithImage:[NSBundle py_imageNamed:@"cell-content-line"]];
+                line.py_height = 0.5;
+                line.alpha = 0.7;
+                line.py_x = PYSEARCH_MARGIN;
+                line.py_y = 43;
+                line.py_width = tableView.py_width;
+                line.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+                [cell.contentView addSubview:line];
     }
     
-    //cell.imageView.image = [NSBundle py_imageNamed:@"search_history"];
+    cell.imageView.image = [NSBundle py_imageNamed:@"search_history"];
     cell.textLabel.text = self.searchHistories[indexPath.row];
     
     return cell;
