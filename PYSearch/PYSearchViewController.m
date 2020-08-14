@@ -1309,6 +1309,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
+        cell.textLabel.textColor = PYTextColor;
+        cell.textLabel.font = [UIFont systemFontOfSize:14];
         UIButton *closetButton = [[UIButton alloc] init];
         closetButton.py_size = CGSizeMake(cell.py_height, cell.py_height);
         [closetButton setImage: [UIImage imageNamed: @"window-close-line"] forState: UIControlStateNormal] ;
@@ -1317,25 +1319,14 @@
         closeView.contentMode = UIViewContentModeCenter;
         cell.accessoryView = closetButton;
         UILabel *line = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, tableView.py_width - PYSEARCH_MARGIN*4, 0.5)];
-        line.backgroundColor = UIColor.grayColor;
         line.py_height = 0.5;
         line.alpha = 0.7;
         line.py_x = PYSEARCH_MARGIN*2;
         line.py_y = 43;
         [cell.contentView addSubview:line];
-        UIImageView *leftImg = [[UIImageView alloc] init];
-        leftImg.image = [UIImage imageNamed: @"image-content-line"];
-        leftImg.py_size = CGSizeMake(cell.py_height, cell.py_height);
-        leftImg.py_x = 10;
-        leftImg.contentMode = UIViewContentModeCenter;
-        [cell.contentView addSubview: leftImg];
-        UILabel *text = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, tableView.py_width, cell.py_height)];
-        [cell.contentView addSubview: text];
-        text.py_x = leftImg.frame.size.width + PYSEARCH_MARGIN*2;
-        text.text = self.searchHistories[indexPath.row];
-        text.textColor = PYTextColor;
-        text.font = [UIFont systemFontOfSize:14];
     }
+    cell.imageView.image = [UIImage imageNamed: @"image-content-line"];
+    cell.textLabel.text = self.searchHistories[indexPath.row];
     return cell;
 }
 
