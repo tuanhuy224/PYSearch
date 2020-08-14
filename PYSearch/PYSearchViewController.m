@@ -265,7 +265,7 @@
 - (UITableView *)baseSearchTableView
 {
     if (!_baseSearchTableView) {
-        UITableView *baseSearchTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        UITableView *baseSearchTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         baseSearchTableView.backgroundColor = [UIColor clearColor];
         baseSearchTableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         if ([baseSearchTableView respondsToSelector:@selector(setCellLayoutMarginsFollowReadableWidth:)]) { // For the adapter iPad
@@ -492,48 +492,49 @@
     headerView.py_width = PYScreenW;
     headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     UIView *hotSearchView = [[UIView alloc] init];
-    hotSearchView.py_x = PYSEARCH_MARGIN*2;
-    hotSearchView.py_width = headerView.py_width - hotSearchView.py_x*2;
+    hotSearchView.py_x = PYSEARCH_MARGIN;
+    hotSearchView.py_width = headerView.py_width;
     hotSearchView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     ////
     UIView *viewTitle = [[UIView alloc] init];
-    viewTitle.py_width = PYScreenW;
-    viewTitle.py_height = PYSEARCH_MARGIN*6;
-    UIColor * color = [UIColor colorWithRed:171/255.0f
-                                      green:167/255.0f
-                                       blue:167/255.0f
-                                      alpha:0.2f];
-    viewTitle.backgroundColor = color;
+    viewTitle.py_width = hotSearchView.py_width;
+    viewTitle.py_height = PYSEARCH_MARGIN*5;
+//    UIColor * color = [UIColor colorWithRed:171/255.0f
+//                                      green:167/255.0f
+//                                       blue:167/255.0f
+//                                      alpha:0.2f];
+//    viewTitle.backgroundColor = color;
     viewTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    ////
     UILabel *titleLabel = [self setupTitleLabel:[NSBundle py_localizedStringForKey:PYSearchHotSearchText]];
-    titleLabel.py_height = PYSEARCH_MARGIN*6;
-    titleLabel.py_width = PYScreenW;
-    titleLabel.py_x = PYSEARCH_MARGIN;
+    titleLabel.py_height = PYSEARCH_MARGIN*3;
+    titleLabel.py_width = hotSearchView.py_width;
     titleLabel.font = [UIFont systemFontOfSize:15];
-    UIColor * whiteColor = [UIColor colorWithRed:69/255.0f
-                                           green:69/255.0f
-                                            blue:77/255.0f
+    UIColor * whiteColor = [UIColor colorWithRed:35/255.0f
+                                           green:35/255.0f
+                                            blue:35/255.0f
                                            alpha:1.0f];
     titleLabel.textColor = whiteColor;
     self.hotSearchHeader = titleLabel;
     
-    UIImageView *imgview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-    [imgview setImage:[UIImage imageNamed:@"trending_up_black_24x24"]];
-    [imgview setContentMode:UIViewContentModeScaleAspectFit];
-    imgview.py_y =  PYSEARCH_MARGIN*1.5;
-    imgview.py_x =  PYSEARCH_MARGIN*10.5;
-    [viewTitle addSubview:imgview];
+//    UIImageView *imgview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
+//    [imgview setImage:[UIImage imageNamed:@"trending_up_black_24x24"]];
+//    [imgview setContentMode:UIViewContentModeScaleAspectFit];
+//    imgview.py_y =  PYSEARCH_MARGIN*1.5;
+//    imgview.py_x =  PYSEARCH_MARGIN*10.5;
+//    [viewTitle addSubview:imgview];
     
     [viewTitle addSubview:titleLabel];
-    
+   // viewTitle.backgroundColor = UIColor.grayColor;
     UIView *hotSearchTagsContentView = [[UIView alloc] init];
     hotSearchTagsContentView.py_width = hotSearchView.py_width;
-    hotSearchTagsContentView.py_y = CGRectGetMaxY(viewTitle.frame) + PYSEARCH_MARGIN;
+    ///hotSearchTagsContentView.backgroundColor = UIColor.blueColor;
+    hotSearchTagsContentView.py_y = CGRectGetMaxY(viewTitle.frame);
     hotSearchTagsContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [hotSearchView addSubview:hotSearchTagsContentView];
-    [headerView addSubview:viewTitle];
+    //hotSearchView.backgroundColor = UIColor.redColor;
+
+    [hotSearchView addSubview:viewTitle];
     [headerView addSubview:hotSearchView];
     self.hotSearchTagsContentView = hotSearchTagsContentView;
     self.hotSearchView = hotSearchView;
@@ -1307,10 +1308,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.textLabel.textColor = PYTextColor;
-        cell.textLabel.font = [UIFont systemFontOfSize:14];
-        cell.backgroundColor = [UIColor clearColor];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellID];
         UIButton *closetButton = [[UIButton alloc] init];
         closetButton.py_size = CGSizeMake(cell.py_height, cell.py_height);
         [closetButton setImage: [UIImage imageNamed: @"window-close-line"] forState: UIControlStateNormal] ;
@@ -1325,11 +1323,19 @@
         line.py_x = PYSEARCH_MARGIN*2;
         line.py_y = 43;
         [cell.contentView addSubview:line];
+        UIImageView *leftImg = [[UIImageView alloc] init];
+        leftImg.image = [UIImage imageNamed: @"image-content-line"];
+        leftImg.py_size = CGSizeMake(cell.py_height, cell.py_height);
+        leftImg.py_x = 10;
+        leftImg.contentMode = UIViewContentModeCenter;
+        [cell.contentView addSubview: leftImg];
+        UILabel *text = [[UILabel alloc] initWithFrame: CGRectMake(0, 0, tableView.py_width, cell.py_height)];
+        [cell.contentView addSubview: text];
+        text.py_x = leftImg.frame.size.width + PYSEARCH_MARGIN*2;
+        text.text = self.searchHistories[indexPath.row];
+        text.textColor = PYTextColor;
+        text.font = [UIFont systemFontOfSize:14];
     }
-    
-    cell.imageView.image = [UIImage imageNamed: @"image-content-line"];
-    cell.textLabel.text = self.searchHistories[indexPath.row];
-    
     return cell;
 }
 
