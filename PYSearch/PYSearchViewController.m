@@ -499,11 +499,6 @@
     UIView *viewTitle = [[UIView alloc] init];
     viewTitle.py_width = hotSearchView.py_width;
     viewTitle.py_height = PYSEARCH_MARGIN*2;
-//    UIColor * color = [UIColor colorWithRed:171/255.0f
-//                                      green:167/255.0f
-//                                       blue:167/255.0f
-//                                      alpha:0.2f];
-//    viewTitle.backgroundColor = color;
     viewTitle.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     UILabel *titleLabel = [self setupTitleLabel:[NSBundle py_localizedStringForKey:PYSearchHotSearchText]];
     titleLabel.py_height = PYSEARCH_MARGIN*2;
@@ -516,47 +511,28 @@
                                            alpha:1.0f];
     titleLabel.textColor = whiteColor;
     self.hotSearchHeader = titleLabel;
-    
-//    UIImageView *imgview = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 25, 25)];
-//    [imgview setImage:[UIImage imageNamed:@"trending_up_black_24x24"]];
-//    [imgview setContentMode:UIViewContentModeScaleAspectFit];
-//    imgview.py_y =  PYSEARCH_MARGIN*1.5;
-//    imgview.py_x =  PYSEARCH_MARGIN*10.5;
-//    [viewTitle addSubview:imgview];
-    
     [viewTitle addSubview:titleLabel];
     UIView *hotSearchTagsContentView = [[UIView alloc] init];
-    hotSearchTagsContentView.py_width = hotSearchView.py_width - 16;
+    hotSearchTagsContentView.py_width = hotSearchView.py_width - 32;
     hotSearchTagsContentView.py_x = 16;
-    //hotSearchTagsContentView.backgroundColor = UIColor.blueColor;
     hotSearchTagsContentView.py_y = CGRectGetMaxY(viewTitle.frame) + PYSEARCH_MARGIN + PYSEARCH_MARGIN/5;
     hotSearchTagsContentView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [hotSearchView addSubview:hotSearchTagsContentView];
 
     [hotSearchView addSubview:viewTitle];
+//    UILabel *searchHistoryLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+//    searchHistoryLabel.py_width = hotSearchView.py_width - 32;
+//    searchHistoryLabel.py_x = 16;
+//
+//    searchHistoryLabel.py_y = CGRectGetMaxY(hotSearchView.frame) + PYSEARCH_MARGIN + PYSEARCH_MARGIN/5;
+//    searchHistoryLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    [headerView addSubview:searchHistoryLabel];
+//
     [headerView addSubview:hotSearchView];
     self.hotSearchTagsContentView = hotSearchTagsContentView;
     self.hotSearchView = hotSearchView;
     self.headerView = headerView;
     self.baseSearchTableView.tableHeaderView = headerView;
-    
-//    UIView *footerView = [[UIView alloc] init];
-//    footerView.py_width = PYScreenW;
-//    UILabel *emptySearchHistoryLabel = [[UILabel alloc] init];
-//    emptySearchHistoryLabel.textColor = [UIColor darkGrayColor];
-//    emptySearchHistoryLabel.font = [UIFont systemFontOfSize:13];
-//    emptySearchHistoryLabel.userInteractionEnabled = YES;
-//    emptySearchHistoryLabel.text = [NSBundle py_localizedStringForKey:PYSearchEmptySearchHistoryText];
-//    emptySearchHistoryLabel.textAlignment = NSTextAlignmentCenter;
-//    emptySearchHistoryLabel.py_height = 49;
-//    [emptySearchHistoryLabel addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(emptySearchHistoryDidClick)]];
-//    emptySearchHistoryLabel.py_width = footerView.py_width;
-//    emptySearchHistoryLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-//    self.emptySearchHistoryLabel = emptySearchHistoryLabel;
-//    [footerView addSubview:emptySearchHistoryLabel];
-//    footerView.py_height = emptySearchHistoryLabel.py_height;
-//    self.baseSearchTableView.tableFooterView = footerView;
-    
     self.hotSearches = nil;
 }
 
@@ -1346,8 +1322,7 @@
     if ([self.delegate respondsToSelector:@selector(searchController:viewForHeaderInSection:)]) {
         return [self.delegate searchController:self viewForHeaderInSection: section];
     }
-    
-    UIView *v = [[UIView alloc] initWithFrame: CGRectMake(16,0, 100, 20)];
+    UIView *v = [[UIView alloc] initWithFrame: CGRectMake(16,0, 300, 20)];
     return v;
 }
 
