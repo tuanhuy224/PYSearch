@@ -526,7 +526,7 @@
     
     [viewTitle addSubview:titleLabel];
     UIView *hotSearchTagsContentView = [[UIView alloc] init];
-    hotSearchTagsContentView.py_width = hotSearchView.py_width;
+    hotSearchTagsContentView.py_width = hotSearchView.py_width - 16;
     hotSearchTagsContentView.py_x = 16;
     //hotSearchTagsContentView.backgroundColor = UIColor.blueColor;
     hotSearchTagsContentView.py_y = CGRectGetMaxY(viewTitle.frame) + PYSEARCH_MARGIN + PYSEARCH_MARGIN/5;
