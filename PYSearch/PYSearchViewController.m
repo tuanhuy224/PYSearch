@@ -216,11 +216,11 @@
         }
     }
     
-    if (NULL == self.searchResultController.parentViewController) {
-        [self.searchBar becomeFirstResponder];
-    } else if (YES == self.showKeyboardWhenReturnSearchResult) {
-        [self.searchBar becomeFirstResponder];
-    }
+//    if (NULL == self.searchResultController.parentViewController) {
+//        [self.searchBar becomeFirstResponder];
+//    } else if (YES == self.showKeyboardWhenReturnSearchResult) {
+//        [self.searchBar becomeFirstResponder];
+//    }
     // 修复滑动返回功能
     if (_searchViewControllerShowMode == PYSearchViewControllerShowModePush) {
         if (self.navigationController.viewControllers.count > 1) {
